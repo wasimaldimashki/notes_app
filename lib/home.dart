@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/add_note.dart';
+
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/notes_list_view.dart';
 
@@ -9,9 +11,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      body: NotesListView(),
+      body: const NotesListView(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return const AddNoteBottomSheet();
+              });
+        },
         child: const Icon(Icons.add),
       ),
     );
