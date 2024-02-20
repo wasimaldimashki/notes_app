@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
 import 'package:notes_app/cubits/theme/theme_cubit.dart';
 import 'package:notes_app/views/home.dart';
 import 'package:notes_app/theme/app_theme.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotesBox);
   runApp(const NotesApp());
 }
 
