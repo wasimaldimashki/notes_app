@@ -5,9 +5,9 @@ class LightTheme {
     primaryColor: Colors.amber,
     scaffoldBackgroundColor: const Color.fromARGB(233, 255, 255, 255),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.black),
-      bodyMedium: TextStyle(color: Colors.black),
-      titleLarge: TextStyle(color: Colors.black),
+      bodyLarge: TextStyle(color: Colors.black, letterSpacing: 1),
+      bodyMedium: TextStyle(color: Colors.black, letterSpacing: 1),
+      titleLarge: TextStyle(color: Colors.black, letterSpacing: 1),
     ),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
@@ -17,7 +17,6 @@ class LightTheme {
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
     iconTheme: const IconThemeData(
       color: Colors.amber,
-      weight: 1000,
       size: 24,
     ),
     listTileTheme: const ListTileThemeData(
@@ -39,9 +38,18 @@ class DarkTheme {
     scaffoldBackgroundColor: Colors.grey[900],
     cardColor: Colors.grey[800],
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white),
-      titleLarge: TextStyle(color: Colors.white),
+      bodyLarge: TextStyle(color: Colors.white, letterSpacing: 1),
+      bodyMedium: TextStyle(color: Colors.white, letterSpacing: 1),
+      bodySmall: TextStyle(color: Colors.white, letterSpacing: 1),
+      titleLarge: TextStyle(color: Colors.white, letterSpacing: 1),
+      titleMedium: TextStyle(color: Colors.white, letterSpacing: 1),
+      titleSmall: TextStyle(color: Colors.white, letterSpacing: 1),
+      displayLarge: TextStyle(color: Colors.white, letterSpacing: 1),
+      displayMedium: TextStyle(color: Colors.white, letterSpacing: 1),
+      displaySmall: TextStyle(color: Colors.white, letterSpacing: 1),
+      headlineLarge: TextStyle(color: Colors.white, letterSpacing: 1),
+      headlineMedium: TextStyle(color: Colors.white, letterSpacing: 1),
+      headlineSmall: TextStyle(color: Colors.white, letterSpacing: 1),
     ),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,

@@ -20,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: IconButton(
+              tooltip: 'Search Note',
               onPressed: () {},
               icon: const Icon(
                 Icons.search,
@@ -29,20 +30,39 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           )
         ],
-        leading: InkWell(
-          onTap: () {
-            context.read<ThemeCubit>().toggleTheme();
+        leading: BlocBuilder<ThemeCubit, ThemeModeEnum>(
+          builder: (context, themeMode) {
+            return IconButton(
+                onPressed: () {
+                  context.read<ThemeCubit>().toggleTheme();
+                },
+                icon: Icon(
+                  themeMode == ThemeModeEnum.Dark
+                      ? Icons.light_mode
+                      : Icons.dark_mode,
+                  color: themeMode == ThemeModeEnum.Dark
+                      ? Colors.deepPurpleAccent
+                      : Colors.yellow,
+                ));
           },
-          child: BlocBuilder<ThemeCubit, ThemeModeEnum>(
-            builder: (context, themeMode) {
-              return Icon(
-                themeMode == ThemeModeEnum.Dark
-                    ? Icons.light_mode
-                    : Icons.dark_mode,
-              );
-            },
-          ),
         ),
+        // leading: InkWell(
+        //   onTap: () {
+        //     context.read<ThemeCubit>().toggleTheme();
+        //   },
+        //   child: BlocBuilder<ThemeCubit, ThemeModeEnum>(
+        //     builder: (context, themeMode) {
+        //       return Icon(
+        //         themeMode == ThemeModeEnum.Dark
+        //             ? Icons.light_mode
+        //             : Icons.dark_mode,
+        //         color: themeMode == ThemeModeEnum.Dark
+        //             ? Colors.deepPurpleAccent
+        //             : Colors.yellow,
+        //       );
+        //     },
+        //   ),
+        // ),
       ),
     );
   }
