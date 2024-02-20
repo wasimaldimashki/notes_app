@@ -16,13 +16,22 @@ class HomePage extends StatelessWidget {
         tooltip: 'Add New Note',
         onPressed: () {
           showModalBottomSheet(
-              enableDrag: true,
-              useSafeArea: true,
-              showDragHandle: true,
-              context: context,
-              builder: (context) {
-                return const AddNoteBottomSheet();
-              });
+            context: context,
+            isScrollControlled: true,
+            showDragHandle: true,
+            enableDrag: true,
+            builder: (context) {
+              return DraggableScrollableSheet(
+                expand: false,
+                builder: (context, controller) {
+                  return SingleChildScrollView(
+                    controller: controller,
+                    child: const AddNoteBottomSheet(),
+                  );
+                },
+              );
+            },
+          );
         },
         child: const Icon(Icons.add),
       ),
