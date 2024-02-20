@@ -1,23 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/core/class/theme_mod.dart';
+import 'package:notes_app/cubits/theme/theme_cubit.dart';
+import 'package:notes_app/home.dart';
+import 'package:notes_app/theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const NotesApp(),
-    );
-  }
+  runApp(const NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
@@ -25,6 +14,21 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeModeEnum>(
+        builder: (context, themeMode) {
+          final ThemeData themeData = themeMode == ThemeModeEnum.Light
+              ? LightTheme.themeData
+              : DarkTheme.themeData;
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Notes Application',
+            theme: themeData,
+            home: const HomePage(),
+          );
+        },
+      ),
+    );
   }
 }
