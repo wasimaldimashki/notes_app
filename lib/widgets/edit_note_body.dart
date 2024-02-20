@@ -9,7 +9,7 @@ class EditNoteBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Container(
-        child: Column(
+        child: const Column(
           children: [
             CustomTextField(
               hintText: 'edit title',
