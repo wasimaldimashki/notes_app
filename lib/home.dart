@@ -7,9 +7,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(),
-      body: Expanded(child: NotesListView()),
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      body: NotesListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

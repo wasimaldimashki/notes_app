@@ -17,6 +17,7 @@ class LightTheme {
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
     iconTheme: const IconThemeData(
       color: Colors.amber,
+      weight: 1000,
       size: 24,
     ),
     listTileTheme: const ListTileThemeData(
