@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
