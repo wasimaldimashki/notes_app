@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/screens/notes_view.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
+import 'package:notes_app/widgets/notes_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomAppBar(),
-      body: NotesView(),
+      body: Expanded(child: NotesListView()),
     );
   }
 }
