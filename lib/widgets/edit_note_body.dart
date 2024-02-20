@@ -6,10 +6,10 @@ class EditNoteBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        child: const Column(
+    return const Padding(
+      padding: EdgeInsets.all(16),
+      child: SizedBox(
+        child: Column(
           children: [
             CustomTextField(
               hintText: 'edit title',
