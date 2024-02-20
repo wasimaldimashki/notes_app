@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class LightTheme {
   static final ThemeData themeData = ThemeData(
-    primaryColor: Colors.amber,
+    primaryColor: Colors.yellow,
     scaffoldBackgroundColor: const Color.fromARGB(233, 255, 255, 255),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(color: Colors.black, letterSpacing: 1),
@@ -14,7 +14,11 @@ class LightTheme {
     ),
     fontFamily: 'Poppins',
     visualDensity: VisualDensity.standard,
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.amber,
+      onPrimary: Colors.yellow,
+      primary: Colors.amber,
+    ),
     iconTheme: const IconThemeData(
       color: Colors.amber,
       size: 24,
