@@ -7,8 +7,17 @@ class EditNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: EditNoteBody(),
+      appBar: AppBar(
+        title: const Text('Edit Note'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.done),
+          ),
+        ],
+        centerTitle: true,
+      ),
+      body: const EditNoteBody(),
     );
   }
 }
