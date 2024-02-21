@@ -32,7 +32,6 @@ class CustomTextField extends StatelessWidget {
         labelStyle: const TextStyle(fontSize: 20),
         prefixIcon: Icon(icon),
         hintText: hintText,
-        // errorText: 'This field is required',
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
         ),

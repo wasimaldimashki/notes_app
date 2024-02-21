@@ -22,45 +22,51 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Form(
-          autovalidateMode: autovalidateMode,
-          key: formKey,
-          child: ListView(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              CustomTextField(
-                hintText: 'enter title',
-                labelText: 'Title',
-                icon: Icons.title,
-                onSave: (value) {
-                  title = value;
-                },
+        child: ListView(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            Form(
+              autovalidateMode: autovalidateMode,
+              key: formKey,
+              child: Column(
+                children: [
+                  CustomTextField(
+                    hintText: 'enter title',
+                    labelText: 'Title',
+                    icon: Icons.title,
+                    onSave: (value) {
+                      title = value;
+                    },
+                  ),
+                  const SizedBox(height: 25),
+                  CustomTextField(
+                    onSave: (value) {
+                      subTitle = value;
+                    },
+                    hintText: 'enter content',
+                    labelText: 'Content',
+                    icon: Icons.content_paste,
+                    maxLines: 5,
+                  ),
+                  const SizedBox(height: 25),
+                  CustomButton(
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        print(title);
+                        print(subTitle);
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 25),
+                ],
               ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                onSave: (value) {
-                  subTitle = value;
-                },
-                hintText: 'enter content',
-                labelText: 'Content',
-                icon: Icons.content_paste,
-                maxLines: 5,
-              ),
-              const SizedBox(height: 25),
-              CustomButton(onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  print(title);
-                  print(subTitle);
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              }),
-              const SizedBox(height: 25),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
