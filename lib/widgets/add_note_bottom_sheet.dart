@@ -18,36 +18,52 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFailure) {
-              print('failed ${state.errorMessage}');
-            }
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFailure) {
+            print('failed ${state.errorMessage}');
+          }
 
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context);
-              showDialog(
-                  context: context,
-                  builder: (_) {
-                    return const AlertDialog(
-                      title: Text('Added Successfully'),
-                      titleTextStyle: TextStyle(
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (_) {
+                return AlertDialog(
+                  title: const Text('Success'),
+                  content: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.check_circle_outline,
                         color: Colors.green,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                        size: 48,
                       ),
-                    );
-                  });
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading ? true : false,
-              child: const AddNoteForm(),
+                      SizedBox(height: 16),
+                      Text('Added Note Successfully'),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
+              },
             );
-          },
-        ),
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is AddNoteLoading ? true : false,
+            child: const SingleChildScrollView(
+              child: AddNoteForm(),
+            ),
+          );
+        },
       ),
     );
   }
