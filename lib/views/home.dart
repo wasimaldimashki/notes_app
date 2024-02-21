@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 builder: (context, controller) {
                   return SingleChildScrollView(
                     controller: controller,
-                    child: const AddNoteBottomSheet(),
+                    child: AddNoteBottomSheet(),
                   );
                 },
               );
