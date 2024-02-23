@@ -21,15 +21,16 @@ class HomePage extends StatelessWidget {
             showDragHandle: true,
             enableDrag: true,
             builder: (context) {
-              return DraggableScrollableSheet(
-                expand: false,
-                builder: (context, controller) {
-                  return SingleChildScrollView(
-                    controller: controller,
-                    child: const AddNoteBottomSheet(),
-                  );
-                },
-              );
+              return const AddNoteBottomSheet();
+              // return DraggableScrollableSheet(
+              //   expand: false,
+              //   builder: (context, controller) {
+              //     return SingleChildScrollView(
+              //       controller: controller,
+              //       child: const AddNoteBottomSheet(),
+              //     );
+              //   },
+              // );
             },
           );
         },
