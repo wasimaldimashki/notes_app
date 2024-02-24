@@ -5,16 +5,18 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
 import 'package:notes_app/core/models/note_model.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/cubits/theme/theme_cubit.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 import 'package:notes_app/theme/app_theme.dart';
 import 'package:notes_app/views/home.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNotesBox);
+  Bloc.observer = SimpleBlocObserver();
   runApp(const NotesApp());
 }
 
@@ -26,6 +28,7 @@ class NotesApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
+        BlocProvider<NotesCubit>(create: (context) => NotesCubit()),
       ],
       child: Builder(
         builder: (context) {

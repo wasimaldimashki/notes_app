@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
+import 'package:notes_app/core/models/note_model.dart';
 import 'package:notes_app/cubits/theme/theme_cubit.dart';
 import 'package:notes_app/views/edit_note.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key});
+  const NotesItem({super.key, required this.note});
 
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeModeEnum>(
@@ -37,13 +39,13 @@ class NotesItem extends StatelessWidget {
                 children: [
                   ListTile(
                     title: Text(
-                      'Flutter tips',
+                      note.title,
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     subtitle: Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
-                        'Build yore career with wasim aldimashki',
+                        note.subTitle,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ),
@@ -56,7 +58,7 @@ class NotesItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 24),
                     child: Text(
-                      'May 21 , 2024',
+                      note.date,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
