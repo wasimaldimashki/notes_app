@@ -27,6 +27,7 @@ class CustomTextField extends StatelessWidget {
         }
       },
       maxLines: maxLines,
+      autofocus: true,
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: const TextStyle(fontSize: 20),
