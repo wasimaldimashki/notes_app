@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
 import 'package:notes_app/core/models/note_model.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/cubits/theme/theme_cubit.dart';
 import 'package:notes_app/views/edit_note.dart';
 
@@ -53,6 +54,7 @@ class NotesItem extends StatelessWidget {
                       tooltip: 'Remove Note',
                       onPressed: () {
                         note.delete();
+                        BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                       },
                       icon: const Icon(Icons.delete, size: 28),
                     ),

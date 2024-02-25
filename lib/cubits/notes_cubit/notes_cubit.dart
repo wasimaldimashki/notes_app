@@ -14,9 +14,6 @@ class NotesCubit extends Cubit<NotesState> {
   fetchAllNotes() async {
     var notesBox = Hive.box<NoteModel>(kNotesBox);
     notes = notesBox.values.toList();
-
-    // emit(NotesSuccess(notes: notes!));
-    print('===========NOTES SAVED IS :========= $notes');
-    print(notes);
+    emit(NotesSuccess());
   }
 }
