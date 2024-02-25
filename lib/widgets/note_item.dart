@@ -22,7 +22,7 @@ class NotesItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const EditNote();
+                    return EditNote(note: note);
                   },
                 ),
               );

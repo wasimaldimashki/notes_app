@@ -8,6 +8,8 @@ class CustomTextField extends StatelessWidget {
     this.icon,
     this.maxLines = 1,
     this.onSave,
+    this.onChange,
+    this.initialValue = '',
   });
 
   final String hintText;
@@ -15,10 +17,13 @@ class CustomTextField extends StatelessWidget {
   final IconData? icon;
   final int maxLines;
   final void Function(String?)? onSave;
+  final void Function(String)? onChange;
+  final String initialValue;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSave,
+      onChanged: onChange,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Field is required';
@@ -26,6 +31,7 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
+      initialValue: initialValue,
       maxLines: maxLines,
       autofocus: true,
       decoration: InputDecoration(
