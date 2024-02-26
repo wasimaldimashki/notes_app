@@ -46,23 +46,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ));
           },
         ),
-        // leading: InkWell(
-        //   onTap: () {
-        //     context.read<ThemeCubit>().toggleTheme();
-        //   },
-        //   child: BlocBuilder<ThemeCubit, ThemeModeEnum>(
-        //     builder: (context, themeMode) {
-        //       return Icon(
-        //         themeMode == ThemeModeEnum.Dark
-        //             ? Icons.light_mode
-        //             : Icons.dark_mode,
-        //         color: themeMode == ThemeModeEnum.Dark
-        //             ? Colors.deepPurpleAccent
-        //             : Colors.yellow,
-        //       );
-        //     },
-        //   ),
-        // ),
       ),
     );
   }

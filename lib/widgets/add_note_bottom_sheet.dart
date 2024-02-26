@@ -21,7 +21,7 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNoteFailure) {
-            print('failed ${state.errorMessage}');
+            // print('failed ${state.errorMessage}');
           }
 
           if (state is AddNoteSuccess) {
@@ -30,9 +30,9 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
             showDialog(
               context: context,
               builder: (_) {
-                return AlertDialog(
-                  title: const Text('Success'),
-                  content: const Column(
+                return const AlertDialog(
+                  title: Text('Success'),
+                  content: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
@@ -44,14 +44,14 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                       Text('Added Note Successfully'),
                     ],
                   ),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
+                  // actions: [
+                  //   TextButton(
+                  //     onPressed: () {
+                  //       Navigator.of(context).pop();
+                  //     },
+                  //     child: const Text('OK'),
+                  //   ),
+                  // ],
                 );
               },
             );
@@ -64,6 +64,7 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
               padding: EdgeInsets.only(
                 left: 16,
                 right: 16,
+                //ViewInsets that is keyboard information
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: const SingleChildScrollView(

@@ -5,9 +5,28 @@ class LightTheme {
     primaryColor: Colors.yellow,
     scaffoldBackgroundColor: const Color.fromARGB(233, 255, 255, 255),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.black, letterSpacing: 1),
-      bodyMedium: TextStyle(color: Colors.black, letterSpacing: 1),
-      titleLarge: TextStyle(color: Colors.black, letterSpacing: 1),
+      bodyLarge: TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
+      bodyMedium:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 16),
+      bodySmall: TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 14),
+      titleLarge:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
+      titleMedium:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
+      titleSmall:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 16),
+      displayLarge:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 24),
+      displayMedium:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 22),
+      displaySmall:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
+      headlineLarge:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 22),
+      headlineMedium:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
+      headlineSmall:
+          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
     ),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
@@ -42,18 +61,28 @@ class DarkTheme {
     scaffoldBackgroundColor: Colors.grey[900],
     cardColor: Colors.grey[800],
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white, letterSpacing: 1),
-      bodyMedium: TextStyle(color: Colors.white, letterSpacing: 1),
-      bodySmall: TextStyle(color: Colors.white, letterSpacing: 1),
-      titleLarge: TextStyle(color: Colors.white, letterSpacing: 1),
-      titleMedium: TextStyle(color: Colors.white, letterSpacing: 1),
-      titleSmall: TextStyle(color: Colors.white, letterSpacing: 1),
-      displayLarge: TextStyle(color: Colors.white, letterSpacing: 1),
-      displayMedium: TextStyle(color: Colors.white, letterSpacing: 1),
-      displaySmall: TextStyle(color: Colors.white, letterSpacing: 1),
-      headlineLarge: TextStyle(color: Colors.white, letterSpacing: 1),
-      headlineMedium: TextStyle(color: Colors.white, letterSpacing: 1),
-      headlineSmall: TextStyle(color: Colors.white, letterSpacing: 1),
+      bodyLarge: TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
+      bodyMedium:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 16),
+      bodySmall: TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 14),
+      titleLarge:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
+      titleMedium:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
+      titleSmall:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 16),
+      displayLarge:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 24),
+      displayMedium:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 22),
+      displaySmall:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
+      headlineLarge:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 22),
+      headlineMedium:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
+      headlineSmall:
+          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
     ),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
