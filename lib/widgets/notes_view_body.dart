@@ -7,14 +7,15 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size mediaQuery = MediaQuery.of(context).size;
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(mediaQuery.width / 40),
         child: Column(
           children: [
             ListView(
-              children: const [
-                NotesListView(),
+              children: [
+                NotesListView(mediaQuery: mediaQuery),
               ],
             )
           ],

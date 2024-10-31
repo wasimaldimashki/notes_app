@@ -23,7 +23,6 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
           if (state is AddNoteFailure) {
             // print('failed ${state.errorMessage}');
           }
-
           if (state is AddNoteSuccess) {
             BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
@@ -44,14 +43,6 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                       Text('Added Note Successfully'),
                     ],
                   ),
-                  // actions: [
-                  //   TextButton(
-                  //     onPressed: () {
-                  //       Navigator.of(context).pop();
-                  //     },
-                  //     child: const Text('OK'),
-                  //   ),
-                  // ],
                 );
               },
             );

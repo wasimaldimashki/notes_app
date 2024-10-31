@@ -10,8 +10,11 @@ class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(AddNoteInitial());
 
   Color color =
-      // ignore: unrelated_type_equality_checks
       ThemeData.dark() == true ? Colors.grey.shade600 : Colors.white70;
+  void setColor(Color newColor) {
+    color = newColor;
+    emit(AddNoteColorChanged(color: color));
+  }
 
   addNote(NoteModel note) async {
     note.color = color.value;

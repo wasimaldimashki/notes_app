@@ -4,30 +4,7 @@ class LightTheme {
   static final ThemeData themeData = ThemeData(
     primaryColor: Colors.yellow,
     scaffoldBackgroundColor: const Color.fromARGB(233, 255, 255, 255),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
-      bodyMedium:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 16),
-      bodySmall: TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 14),
-      titleLarge:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
-      titleMedium:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
-      titleSmall:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 16),
-      displayLarge:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 24),
-      displayMedium:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 22),
-      displaySmall:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
-      headlineLarge:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 22),
-      headlineMedium:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 20),
-      headlineSmall:
-          TextStyle(color: Colors.black, letterSpacing: 1, fontSize: 18),
-    ),
+    textTheme: sharedTextTheme(Colors.black),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
     ),
@@ -43,16 +20,29 @@ class LightTheme {
       size: 24,
     ),
     listTileTheme: const ListTileThemeData(
-      // tileColor: Colors.white70,
-      // selectedTileColor: Colors.white70,
       contentPadding: EdgeInsets.all(16),
       iconColor: Colors.red,
-      // selectedColor: Colors.white60,
-      // shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
     ),
     primarySwatch: Colors.blue,
     useMaterial3: true,
   );
+
+  static TextTheme sharedTextTheme(Color color) {
+    return TextTheme(
+      bodyLarge: TextStyle(color: color, letterSpacing: 1, fontSize: 18),
+      bodyMedium: TextStyle(color: color, letterSpacing: 1, fontSize: 16),
+      bodySmall: TextStyle(color: color, letterSpacing: 1, fontSize: 14),
+      titleLarge: TextStyle(color: color, letterSpacing: 1, fontSize: 20),
+      titleMedium: TextStyle(color: color, letterSpacing: 1, fontSize: 18),
+      titleSmall: TextStyle(color: color, letterSpacing: 1, fontSize: 16),
+      displayLarge: TextStyle(color: color, letterSpacing: 1, fontSize: 24),
+      displayMedium: TextStyle(color: color, letterSpacing: 1, fontSize: 22),
+      displaySmall: TextStyle(color: color, letterSpacing: 1, fontSize: 20),
+      headlineLarge: TextStyle(color: color, letterSpacing: 1, fontSize: 22),
+      headlineMedium: TextStyle(color: color, letterSpacing: 1, fontSize: 20),
+      headlineSmall: TextStyle(color: color, letterSpacing: 1, fontSize: 18),
+    );
+  }
 }
 
 class DarkTheme {
@@ -60,39 +50,17 @@ class DarkTheme {
     primaryColor: Colors.deepPurpleAccent,
     scaffoldBackgroundColor: Colors.grey[900],
     cardColor: Colors.grey[800],
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
-      bodyMedium:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 16),
-      bodySmall: TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 14),
-      titleLarge:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
-      titleMedium:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
-      titleSmall:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 16),
-      displayLarge:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 24),
-      displayMedium:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 22),
-      displaySmall:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
-      headlineLarge:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 22),
-      headlineMedium:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 20),
-      headlineSmall:
-          TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 18),
-    ),
+    textTheme: LightTheme.sharedTextTheme(Colors.white),
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
     ),
     listTileTheme: const ListTileThemeData(
-      // tileColor: Colors.grey[600],
-      // selectedTileColor: Colors.white,
       contentPadding: EdgeInsets.all(16),
       iconColor: Colors.red,
-      // shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(5)),
+    ),
+    iconTheme: const IconThemeData(
+      color: Colors.amber,
+      size: 24,
     ),
   );
 }
