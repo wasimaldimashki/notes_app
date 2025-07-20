@@ -1,7 +1,9 @@
 import 'package:animated_expandable_fab/animated_expandable_fab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/text_editor_cubit/text_editor_cubit.dart';
 import 'package:notes_app/cubits/view_cubit/view_cubit.dart';
+import 'package:notes_app/views/text_editor/text_editor.dart';
 import 'package:notes_app/widgets/add_note_bottom_sheet.dart';
 import 'package:notes_app/widgets/notes_grid_view.dart';
 import 'package:notes_app/widgets/notes_list_view.dart';
@@ -46,7 +48,16 @@ class _HomePageState extends State<HomePage> {
               ),
               ActionButton(
                 icon: const Icon(Icons.text_fields_rounded),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (context) => TextEditorCubit(),
+                        child: const TextEditor(),
+                      ),
+                    ),
+                  );
+                },
               ),
               ActionButton(
                 icon: const Icon(Icons.notes_rounded),

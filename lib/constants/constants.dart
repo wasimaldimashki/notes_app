@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 const kNotesBox = 'notes_box';
+const kTextBox = 'text_box';
 
 //List Of Colors
 final List<Color> popularColors = [

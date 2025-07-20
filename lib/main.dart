@@ -6,6 +6,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/core/class/theme_mod.dart';
 import 'package:notes_app/core/models/note_model.dart';
+import 'package:notes_app/core/models/text_model.dart';
 import 'package:notes_app/core/shared/cash_manager.dart';
 import 'package:notes_app/cubits/add_note/add_note_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
@@ -21,11 +22,16 @@ void main() async {
   await CashNetwork.cashInitialization();
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
+  Hive.registerAdapter(TextModelAdapter());
   await Hive.openBox<NoteModel>(kNotesBox);
+  await Hive.openBox<TextModel>(kTextBox);
   Bloc.observer = SimpleBlocObserver();
 
   final storage = await HydratedStorage.build(
-      storageDirectory: await getApplicationDocumentsDirectory());
+    storageDirectory: HydratedStorageDirectory(
+      (await getTemporaryDirectory()).path,
+    ),
+  );
 
   HydratedBloc.storage = storage;
 
@@ -41,7 +47,10 @@ class NotesApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
         BlocProvider<NotesCubit>(
-            create: (context) => NotesCubit()..fetchAllNotes()),
+          create: (context) => NotesCubit()
+            ..fetchAllNotes()
+            ..fetchAllTexts(),
+        ),
         BlocProvider<AddNoteCubit>(create: (context) => AddNoteCubit()),
         BlocProvider(create: (_) => ViewCubit()),
       ],

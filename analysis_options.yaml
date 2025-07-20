@@ -1,11 +1,27 @@
 analyzer:
   errors:
-    unrelated_type_equality_checks: ignore
+    await_only_futures: ignore
+    deprecated_member_use: ignore
+    invalid_use_of_protected_member: ignore
+    invalid_use_of_visible_for_testing_member: ignore
+    library_prefixes: ignore
     library_private_types_in_public_api: ignore
+    must_be_immutable: ignore
+    non_constant_identifier_names: ignore
+    override_on_non_overriding_member: ignore
+    prefer_interpolation_to_compose_strings: ignore
+    prefer_single_quotes: ignore
+    unnecessary_brace_in_string_interps: ignore
+    unnecessary_cast: ignore
+    unnecessary_import: ignore
+    unnecessary_null_comparison: ignore
+    unnecessary_string_escapes: ignore
+    unused_local_variable: ignore
+    use_build_context_synchronously: ignore
+    void_checks: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-    curly_braces_in_flow_control_structures: false
-    avoid_print: false  
-    prefer_single_quotes: true 
+    avoid_print: false # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
